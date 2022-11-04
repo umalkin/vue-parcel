@@ -1,0 +1,21 @@
+{
+  "name": "vue-parcel",
+  "version": "1.0.0",
+  "description": "A simple website using Vue and Parcel",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [
+    "vue",
+    "parcel"
+  ],
+  "author": "Rolly Mationg",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-vue": "^2.7.0",
+    "parcel": "^2.7.0",
+    "vue": "^3.2.41"
+  }
+}
