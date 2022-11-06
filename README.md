@@ -1,2 +1,2 @@
-# Intro to VueJS using Parcel
+# Intro to VueJS and Parcel
 
