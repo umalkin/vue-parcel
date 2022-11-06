@@ -1,6 +1,7 @@
 <template>
   <div id="board">
     <h1>TodoList</h1>
+    <input-todo @add-new-todo="addNewTodo($event)"/>
     <div id="list" v-for="todo in todos">
       <h3 id="todo.id">{{ todo.todo }}</h3>
     </div>
@@ -8,8 +9,13 @@
 </template>
 
 <script>
+import InputTodo from './InputTodo.vue'
+
 export default {
   name: "Listahan",
+  components : {
+    "input-todo" : InputTodo
+  },
   data() {
     return {
       todos: [
@@ -18,8 +24,14 @@ export default {
         { id: 3, todo: "sleep" },
         { id: 4, todo: "read" },
       ],
+      newTodo : ''
     };
   },
+  methods : {
+    addNewTodo(val){
+      this.todos.push({id: this.todos.length + 1, todo : val})
+    }
+  }
 };
 </script>
 
