@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="New Todo" v-model="newTodo" />
+    <input type="text" placeholder="New Todo" @keyup.enter="getNewTodo" v-model="newTodo" />
     <input type="submit" value="Add" @click="getNewTodo" />
   </div>
 </template>
@@ -28,18 +28,18 @@ export default {
 </script>
 
 <style scoped>
-div{
+div {
   margin-bottom: 20px;
 }
 
-input[type="text"]{
+input[type="text"] {
   margin: 0 10px;
   padding: 1.2%;
   border: 1px solid lightgreen;
   border-radius: 4px;
 }
 
-input[type="submit"]{
+input[type="submit"] {
   padding: 5px 10px;
   border: 1px solid green;
   border-radius: 2px;
@@ -48,7 +48,7 @@ input[type="submit"]{
   font-size: 14px;
 }
 
-input[type="submit"]:active{
+input[type="submit"]:active {
   color: blue;
   background-color: lightblue;
   border-color: lightgray;

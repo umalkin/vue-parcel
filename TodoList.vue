@@ -2,7 +2,12 @@
   <div id="board">
     <h1>TodoList</h1>
     <input-todo @add-new-todo="addNewTodo($event)" />
-    <todo :todos="todos" />
+    <div v-if="todos.length == 0">
+      <h3>Add a new todo.</h3>
+    </div>
+    <div v-else="">
+      <todo :todos="todos" @delete-todo="deleteTodo($event)" />
+    </div>
   </div>
 </template>
 
@@ -14,7 +19,7 @@ export default {
   name: "Listahan",
   components: {
     "input-todo": InputTodo,
-    "todo" : Todo,
+    todo: Todo,
   },
   data() {
     return {
@@ -24,12 +29,20 @@ export default {
         { id: 3, todo: "sleep" },
         { id: 4, todo: "read" },
       ],
-      newTodo: "",
     };
   },
   methods: {
     addNewTodo(val) {
       this.todos.push({ id: this.todos.length + 1, todo: val });
+    },
+    deleteTodo(index) {
+      let temp = [...this.todos];
+
+      temp = temp.filter((todo) => {
+        return todo.id != index;
+      });
+
+      this.todos = temp;
     },
   },
 };
